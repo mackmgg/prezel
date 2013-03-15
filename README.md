@@ -1,2 +1,3 @@
-prezel
-======
+Pretzel CMS
+
+Requires PHP and MongoDB
