@@ -1,6 +1,6 @@
 <?php
 	namespace pretzel\Controllers;
-	use pretzel\Models\DatabaseModel;
+	use pretzel\Models\PageModel;
 	use pretzel\Views\View;
 
 
@@ -15,8 +15,8 @@
 			return static::$_instance;
 		}
 		public function loadPage($page) {
-			$dm = DatabaseModel::getInstance();
-			View::loadPage($dm->getPage($page),$dm->getPages());
+			$pm = PageModel::getInstance();
+			View::loadPage($pm->getPage($page),$pm->getPages());
 		}
 	}
 ?>

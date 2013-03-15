@@ -10,7 +10,11 @@
 				if($page[1]=="blog") {
 					$bg = BlogController::getInstance();
 					$bg->load($page);
-				} else {
+				} elseif($page[1]=="admin") {
+					$ac = AdminController::getInstance();
+					$ac->load($page);
+				}
+				else {
 					$pg = PageController::getInstance();
 					$pg->loadPage(ucfirst($page[1]));
 				}

@@ -1,7 +1,8 @@
 <?php
 	namespace pretzel\Controllers;
+	use pretzel\Models\BlogModel;
+	use pretzel\Models\PageModel;
 	use pretzel\Views\View;
-	use pretzel\Models\DatabaseModel;
 
 	class BlogController {
 		protected static $_instance;
@@ -20,12 +21,14 @@
 				$this->loadPost($page);
 		}
 		public function loadBlog() {
-			$dm = DatabaseModel::getInstance();
-			View::loadBlog($dm->getPosts(), $dm->getPages());
+			$bm = BlogModel::getInstance();
+			$pm = PageModel::getInstance();
+			View::loadBlog($bm->getPosts(), $pm->getPages());
 		}
 		public function loadPost($post) {
-			$dm = DatabaseModel::getInstance();
-			View::loadPage($dm->getPost($post), $dm->getPages());
+			$bm = BlogModel::getInstance();
+			$pm = PageModel::getInstance();
+			View::loadPost($bm->getPost($post[2]), $pm->getPages());
 		}
 	}
 ?>
